@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React, { useState } from 'react';
-import { Box } from "@mui/material";
+import '@fontsource/roboto';
+import '@fontsource/roboto-slab';
+
 
 export default function App() {
   const storedThemeMode = localStorage.getItem('themeMode');
@@ -22,16 +24,31 @@ export default function App() {
         default: darkMode? '#121212':'#FFF',
       },
       primary: {
-        main: '#7c4dff',
+        main: '#5D5FEF',
       },
       secondary: {
-        main: '#536dfe',
+        main: '#D9D9FF',
+      },
+      text: {
+        primary: darkMode ? '#FFFFFF' : '#19191A',
+        secondary: darkMode ? '#CCCCCC' : '#666666', 
       },
     },
-    
     typography: {
-      fontFamily: 'Poppins',
-    }
+      fontFamily: 'Roboto',
+      h1: {
+        fontFamily: 'Roboto Slab',
+      },
+      h2: {
+        fontFamily: 'Roboto Slab',
+      },
+      h3: {
+        fontFamily: 'Roboto Slab',
+      },
+      h4: {
+        fontFamily: 'Roboto Slab',
+      },
+    },
   });
 
   return (
