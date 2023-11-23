@@ -15,7 +15,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
         <Toolbar>
           <Container sx={{ display: "flex" }}>
             <Typography variant="h5" sx={{ flexGrow: 1 ,pt:'4px'}}>
-              Random Profile
+            Digital Space
             </Typography>
             <IconButton sx={{border:'1px solid'}} color="inherit" onClick={toggleThemeMode}>
               {darkMode ? < NightsStayIcon/> : <WbSunnyRoundedIcon />}
