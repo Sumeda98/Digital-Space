@@ -1,10 +1,11 @@
 import Header from "./Layout/Header";
-import Home from "./pages/Home";
+import { Container } from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import React, { useState } from 'react';
 import '@fontsource/roboto';
 import '@fontsource/roboto-slab';
+import AppRoutes from "./routes/AppRoutes";
 
 
 export default function App() {
@@ -31,7 +32,8 @@ export default function App() {
       },
       text: {
         primary: darkMode ? '#FFFFFF' : '#19191A',
-        secondary: darkMode ? '#CCCCCC' : '#666666', 
+        secondary: darkMode ? '#a3a3a3' : '#666666',
+        irish: '#5D5FEF',
       },
     },
     typography: {
@@ -56,7 +58,9 @@ export default function App() {
       <CssBaseline />
       <Header toggleThemeMode={toggleThemeMode} darkMode={darkMode} />
       
-        <Home darkMode={darkMode}/>
+      <Container>
+        <AppRoutes darkMode={darkMode}/>
+        </Container>
       
     </ThemeProvider>
   );

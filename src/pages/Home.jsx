@@ -4,7 +4,8 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      <Typography variant='h3'> H1 line</Typography>
+      <Typography variant='h3' color='text.secondary'> Home</Typography>
+      <Typography variant='h3' color='text.irish'> H1 line</Typography>
       <Typography>Typography</Typography>
      
       </div>
