@@ -1,9 +1,28 @@
-import React from 'react'
+import React from 'react';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import { Container } from "@mui/material";
+import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
+import NightsStayIcon from '@mui/icons-material/NightsStay';
 
-const Header = () => {
+export default function Header({ toggleThemeMode, darkMode }) {
   return (
-    <>Header</>
-  )
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Container sx={{ display: "flex" }}>
+            <Typography variant="h5" sx={{ flexGrow: 1 ,pt:'4px'}}>
+              Random Profile
+            </Typography>
+            <IconButton sx={{border:'1px solid'}} color="inherit" onClick={toggleThemeMode}>
+              {darkMode ? < NightsStayIcon/> : <WbSunnyRoundedIcon />}
+            </IconButton>
+          </Container>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
-
-export default Header
