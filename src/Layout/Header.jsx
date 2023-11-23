@@ -16,7 +16,9 @@ export default function Header({ toggleThemeMode, darkMode }) {
       <AppBar position="static" sx={{ backgroundColor: darkMode ? '#121212' : 'white' }}>
         <Toolbar>
           <Container sx={{ display: 'flex' }}>
+          <Link to="/" style={{textDecoration:'none'}}>
             <img src={Logo} alt="Logo" style={{ padding: '10px' }} />
+            </Link>
             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' ,alignItems:'center'}}>
               <Link to="/" style={{textDecoration:'none'}}>
               <Typography variant="body1" color='text.irish'>
