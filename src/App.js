@@ -1,9 +1,11 @@
-import './App.css';
+import Header from "./Layout/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      Digital Space
+    <div>
+      <Header/>
+      <Home/>
     </div>
   );
 }
