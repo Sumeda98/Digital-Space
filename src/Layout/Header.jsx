@@ -6,7 +6,7 @@ import { Typography, Button, Container } from '@mui/material'
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import Logo from '../assets/Logo.svg'
+import Logo from '../assets/brand/Logo.svg'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 

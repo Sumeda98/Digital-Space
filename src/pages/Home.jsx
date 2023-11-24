@@ -1,15 +1,23 @@
-import { Typography } from '@mui/material'
-import React from 'react'
+import { Typography } from "@mui/material";
+import React from "react";
+import HeroSection from "./home/HeroSection";
+import ClientSection from "./home/ClientSection";
+import WeDoSection from "./home/WeDoSection";
+import TestimonialSection from "./home/TestimonialSection";
+import ProjectSection from "./home/ProjectSection";
+import QASection from "./home/QASection";
 
 const Home = () => {
   return (
     <div>
-      <Typography variant='h3' color='text.secondary'> Home</Typography>
-      <Typography variant='h3' color='text.irish'> H1 line</Typography>
-      <Typography>Typography</Typography>
-     
-      </div>
-  )
-}
+      <HeroSection />
+      <ClientSection />
+      <WeDoSection />
+      <TestimonialSection />
+      <ProjectSection />
+      <QASection />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
