@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Typography, Button, Container } from '@mui/material'
+import { Typography, Button, Container, Grid } from '@mui/material'
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from '@mui/icons-material/WbSunnyRounded';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -13,9 +13,10 @@ import { Link } from 'react-router-dom';
 export default function Header({ toggleThemeMode, darkMode }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: darkMode ? '#121212' : 'white' }}>
+      <Container> 
+      <AppBar elevation='1' position="sticky" sx={{mt:2,borderRadius:2, backgroundColor: darkMode ? '#121212' : 'white',}}>
         <Toolbar>
-          <Container sx={{ display: 'flex' }}>
+          
           <Link to="/" style={{textDecoration:'none'}}>
             <img src={Logo} alt="Logo" style={{ padding: '10px' }} />
             </Link>
@@ -51,9 +52,11 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Button variant='contained'>Let's Start</Button>
               </div>
             </Box>
-          </Container>
+         
         </Toolbar>
       </AppBar>
+      
+      </Container>
     </Box>
   );
 }

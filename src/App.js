@@ -1,54 +1,54 @@
 import Header from "./Layout/Header";
+import Footer from "./Layout/Footer";
 import { Container } from "@mui/material";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import React, { useState } from 'react';
-import '@fontsource/roboto';
-import '@fontsource/roboto-slab';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import React, { useState } from "react";
+import "@fontsource/roboto";
+import "@fontsource/roboto-slab";
 import AppRoutes from "./routes/AppRoutes";
 
-
 export default function App() {
-  const storedThemeMode = localStorage.getItem('themeMode');
-  const [darkMode, setDarkMode] = useState(storedThemeMode === 'dark');
+  const storedThemeMode = localStorage.getItem("themeMode");
+  const [darkMode, setDarkMode] = useState(storedThemeMode === "dark");
 
   const toggleThemeMode = () => {
     const newMode = !darkMode;
     setDarkMode(newMode);
-    localStorage.setItem('themeMode', newMode ? 'dark' : 'light');
+    localStorage.setItem("themeMode", newMode ? "dark" : "light");
   };
 
   const theme = createTheme({
     palette: {
-      mode: darkMode ? 'dark' : 'light',
+      mode: darkMode ? "dark" : "light",
       background: {
-        default: darkMode? '#121212':'#FFF',
+        default: darkMode ? "#121212" : "#FFF",
       },
       primary: {
-        main: '#5D5FEF',
+        main: "#5D5FEF",
       },
       secondary: {
-        main: '#D9D9FF',
+        main: "#D9D9FF",
       },
       text: {
-        primary: darkMode ? '#FFFFFF' : '#19191A',
-        secondary: darkMode ? '#a3a3a3' : '#666666',
-        irish: '#5D5FEF',
+        primary: darkMode ? "#FFFFFF" : "#19191A",
+        secondary: darkMode ? "#a3a3a3" : "#666666",
+        irish: "#5D5FEF",
       },
     },
     typography: {
-      fontFamily: 'Roboto',
+      fontFamily: "Roboto",
       h1: {
-        fontFamily: 'Roboto Slab',
+        fontFamily: "Roboto Slab",
       },
       h2: {
-        fontFamily: 'Roboto Slab',
+        fontFamily: "Roboto Slab",
       },
       h3: {
-        fontFamily: 'Roboto Slab',
+        fontFamily: "Roboto Slab",
       },
       h4: {
-        fontFamily: 'Roboto Slab',
+        fontFamily: "Roboto Slab",
       },
     },
   });
@@ -56,12 +56,15 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header toggleThemeMode={toggleThemeMode} darkMode={darkMode} />
       
-      <Container>
-        <AppRoutes darkMode={darkMode}/>
+      <Header  toggleThemeMode={toggleThemeMode} darkMode={darkMode}/>
+    
+      <div >
+        <Container >
+          <AppRoutes darkMode={darkMode} />
         </Container>
-      
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }
