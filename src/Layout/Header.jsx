@@ -2,7 +2,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Typography, Button, Container, Grid, Drawer, List, ListItem, Divider } from "@mui/material";
+import { Typography, Button, Container, Grid, Drawer, List, ListItem, Divider,SliverAppBar,Sliver } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
@@ -36,13 +36,14 @@ export default function Header({ toggleThemeMode, darkMode }) {
           elevation="1"
           position="sticky"
           sx={{
+            mt:1,
             borderRadius: 2,
             backgroundColor: darkMode ? "#121212" : "white",
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <Link to="/" style={{ textDecoration: "none" }}>
-              <img src={Logo} alt="Logo" style={{ padding: "10px", maxWidth: "80%", height: "auto" }} />
+              <img src={Logo} alt="Logo" style={{ maxWidth: "80%", height: "auto" }} />
             </Link>
             <Box
               sx={{
