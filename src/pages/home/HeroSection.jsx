@@ -20,6 +20,7 @@ const HeroSection = () => {
           xs={12}
           md={6}
           sx={{
+            mt:isMobile? 4:0,
             display: "flex",
             alignItems: "center",
             justifyContent: { xs: "center", md: "left" },
