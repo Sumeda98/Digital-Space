@@ -68,12 +68,7 @@ export default function App() {
       
       <Header  toggleThemeMode={toggleThemeMode} darkMode={darkMode}/>
       
-      <div>
-        <Container>
-          <AppRoutes darkMode={darkMode} />
-        </Container>
-        <Footer />
-      </div>
+      <Footer />
     </ThemeProvider>
   );
 }

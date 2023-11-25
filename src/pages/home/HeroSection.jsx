@@ -1,6 +1,7 @@
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import HeroIMG from "../../assets/images/HeroIMG.svg";
+import HeroIMG_Mobile from "../../assets/images/HeroIMG_Mobile.svg";
 import { useTheme } from "@emotion/react";
 import Typewriter from "typewriter-effect";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -13,7 +14,7 @@ const HeroSection = () => {
 
   return (
     <>
-      <Grid spacing={4} container sx={{ minHeight: "100vh" }}>
+      <Grid spacing={4} container sx={{ minHeight: isMobile ? '50vh':"100vh" }}>
         <Grid
           item
           xs={12}
@@ -28,7 +29,7 @@ const HeroSection = () => {
             <Typography variant="body1" color="text.iris" textAlign={isMobile ? 'center' :'left'}>
               Where your business takes flight.
             </Typography>
-            <Typography textAlign={isMobile ? 'center' :'left'} variant={isMobile ? "h6" : "h4"}>
+            <Typography sx={{fontWeight:600}} textAlign={isMobile ? 'center' :'left'} variant={isMobile ? "h5" : "h4"}>
               We'll help you reach new heights in the{" "}
               <span style={{ color: theme.palette.primary.main }}>
                 Digital World
@@ -40,14 +41,15 @@ const HeroSection = () => {
             </Typography>
             <div style={{marginTop:'20px', display:'flex', justifyContent:isMobile ? 'center':'left'}}>
             <Button
-            sx={{mr:2}}
+            sx={{mr:2, textTransform:'capitalize',p:1,px:2}}
               variant="contained"
               color="primary"
               endIcon={<KeyboardArrowRightIcon />}
             >
-              Lest Start
+              Start Your Project
             </Button>
             <Button
+            sx={{textTransform:'capitalize',p:1,px:2}}
               variant="outlined"
               color="primary"
               endIcon={<CallMadeIcon />}
@@ -68,7 +70,7 @@ const HeroSection = () => {
           }}
         >
           <img
-            src={HeroIMG}
+            src={isMobile? HeroIMG_Mobile:HeroIMG}
             alt="hero"
             style={{ maxWidth: "100%", height: "auto" }}
           />

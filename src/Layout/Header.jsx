@@ -2,7 +2,7 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Typography, Button, Container, Grid, Drawer } from "@mui/material";
+import { Typography, Button, Container, Grid, Drawer, List, ListItem, Divider } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
@@ -12,6 +12,7 @@ import Logo from "../assets/brand/Logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import AppRoutes from "../routes/AppRoutes";
 
 export default function Header({ toggleThemeMode, darkMode }) {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="/" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  sx={{ fontWeight: isActive("/") ? 600 : 500 }}
+                  sx={{ fontWeight: isActive("/") ? 500 : 500 }}
                   color={isActive("/") ? "text.iris" : "text.secondary"}
                 >
                   Home
@@ -68,7 +69,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   }
                   sx={{
                     paddingLeft: "30px",
-                    fontWeight: isActive("/services") ? 600 : 500,
+                    fontWeight: isActive("/services") ? 500 : 500,
                   }}
                 >
                   Service
@@ -80,7 +81,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   color={isActive("/contact") ? "text.iris" : "text.secondary"}
                   sx={{
                     paddingLeft: "30px",
-                    fontWeight: isActive("/contact") ? 600 : 500,
+                    fontWeight: isActive("/contact") ? 500 : 500,
                   }}
                 >
                   Contact
@@ -110,6 +111,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               </div>
               <div>
                 <Button
+                sx={{textTransform:'capitalize',p:1,px:3}}
                   variant="contained"
                   endIcon={<KeyboardArrowRightIcon />}
                 >
@@ -130,12 +132,20 @@ export default function Header({ toggleThemeMode, darkMode }) {
           anchor="right"
           open={isDrawerOpen}
           onClose={handleDrawerClose}
-          sx={{ display: { xs: "block", md: "none" } }}
+          sx={{ display: { xs: "block", md: "none" }}}
         >
-          <Box sx={{ display: "flex", flexDirection: "column", p: 10 }}>
-            Drawer
-          </Box>
+          
+            <List sx={{mx:10}}>
+              <ListItem>Home</ListItem>
+              <Divider/>
+              <ListItem>Home</ListItem>
+              <Divider/>
+              <ListItem>Home</ListItem>
+              <Divider/>
+            </List>
+          
         </Drawer>
+        <AppRoutes/>
       </Container>
     </Box>
   );
