@@ -17,51 +17,6 @@ const Home = () => {
       <TestimonialSection />
       <ProjectSection />
       <QASection />
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      
-      <div>svdds</div>
-      
-
-      <div>svdds</div><div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      <div>svdds</div>
-      v
-      <div>svdds</div>
-      v
-
-      <div>svdds</div><div>svdds</div>
-      <WeDoCard/>
-
-
     </div>
   );
 };

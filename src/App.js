@@ -18,6 +18,8 @@ export default function App() {
     localStorage.setItem("themeMode", newMode ? "dark" : "light");
   };
 
+  const primaryColor = '#5D5FEF';
+
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -25,7 +27,7 @@ export default function App() {
         default: darkMode ? "#121212" : "#FFF",
       },
       primary: {
-        main: "#5D5FEF",
+        main: primaryColor,
       },
       secondary: {
         main: "#D9D9FF",
@@ -33,7 +35,7 @@ export default function App() {
       text: {
         primary: darkMode ? "#FFFFFF" : "#19191A",
         secondary: darkMode ? "#a3a3a3" : "#666666",
-        irish: "#5D5FEF",
+        iris: primaryColor,
         white: '#FFFF'
       },
     },
@@ -66,7 +68,7 @@ export default function App() {
       
       <Header  toggleThemeMode={toggleThemeMode} darkMode={darkMode}/>
       
-      <div >
+      <div>
         <Container>
           <AppRoutes darkMode={darkMode} />
         </Container>

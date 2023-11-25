@@ -55,7 +55,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                 <Typography
                   variant="body1"
                   sx={{ fontWeight: isActive("/") ? 600 : 500 }}
-                  color={isActive("/") ? "text.irish" : "text.secondary"}
+                  color={isActive("/") ? "text.iris" : "text.secondary"}
                 >
                   Home
                 </Typography>
@@ -64,7 +64,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                 <Typography
                   variant="body1"
                   color={
-                    isActive("/services") ? "text.irish" : "text.secondary"
+                    isActive("/services") ? "text.iris" : "text.secondary"
                   }
                   sx={{
                     paddingLeft: "30px",
@@ -77,7 +77,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="contact" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  color={isActive("/contact") ? "text.irish" : "text.secondary"}
+                  color={isActive("/contact") ? "text.iris" : "text.secondary"}
                   sx={{
                     paddingLeft: "30px",
                     fontWeight: isActive("/contact") ? 600 : 500,

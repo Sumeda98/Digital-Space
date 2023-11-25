@@ -9,7 +9,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 const HeroSection = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
     <>
@@ -25,20 +25,20 @@ const HeroSection = () => {
           }}
         >
           <div>
-            <Typography variant="body1" color="text.irish">
+            <Typography variant="body1" color="text.iris" textAlign={isMobile ? 'center' :'left'}>
               Where your business takes flight.
             </Typography>
-            <Typography variant={isMobile ? "h6" : "h4"}>
+            <Typography textAlign={isMobile ? 'center' :'left'} variant={isMobile ? "h6" : "h4"}>
               We'll help you reach new heights in the{" "}
               <span style={{ color: theme.palette.primary.main }}>
                 Digital World
               </span>
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography textAlign={isMobile ? 'center' :'left'} variant="body2" color="text.secondary">
               We'll amplify your brand's voice, resonating with audiences across
               the digital sphere.
             </Typography>
-            <div style={{marginTop:'20px'}}>
+            <div style={{marginTop:'20px', display:'flex', justifyContent:isMobile ? 'center':'left'}}>
             <Button
             sx={{mr:2}}
               variant="contained"
@@ -61,7 +61,11 @@ const HeroSection = () => {
           item
           xs={12}
           md={6}
-          sx={{ minHeight: { xs: "50vh", md: "100vh" } }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: { xs: "center", md: "left" },
+          }}
         >
           <img
             src={HeroIMG}
