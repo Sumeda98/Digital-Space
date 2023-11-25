@@ -107,7 +107,7 @@ const Footer = () => {
                     </IconButton>
                   </InputAdornment>
                 ),
-                style: { backgroundColor: "white" },
+                style: { backgroundColor: "white", borderRadius: '10px',},
               }}
             />
           </Grid>

@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import { Typography, Button, Container, Grid, Drawer } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Logo from "../assets/brand/Logo.svg";
@@ -66,7 +67,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                     isActive("/services") ? "text.irish" : "text.secondary"
                   }
                   sx={{
-                    paddingLeft: "20px",
+                    paddingLeft: "30px",
                     fontWeight: isActive("/services") ? 600 : 500,
                   }}
                 >
@@ -78,7 +79,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   variant="body1"
                   color={isActive("/contact") ? "text.irish" : "text.secondary"}
                   sx={{
-                    paddingLeft: "20px",
+                    paddingLeft: "30px",
                     fontWeight: isActive("/contact") ? 600 : 500,
                   }}
                 >
@@ -103,7 +104,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   {darkMode ? (
                     <DarkModeIcon />
                   ) : (
-                    <WbSunnyRoundedIcon sx={{ color: "#666666" }} />
+                    <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
                   )}
                 </IconButton>
               </div>
