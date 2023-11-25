@@ -31,7 +31,7 @@ const HeroSection = () => {
               Where your business takes flight.
             </Typography>
             <Typography sx={{fontWeight:600}} textAlign={isMobile ? 'center' :'left'} variant={isMobile ? "h5" : "h4"}>
-              We'll help you reach new heights in the{" "}
+              111We'll help you reach new heights in the{" "}
               <span style={{ color: theme.palette.primary.main }}>
                 Digital World
               </span>
