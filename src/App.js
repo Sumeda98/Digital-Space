@@ -1,6 +1,6 @@
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import React, { useState } from "react";
@@ -34,6 +34,7 @@ export default function App() {
         primary: darkMode ? "#FFFFFF" : "#19191A",
         secondary: darkMode ? "#a3a3a3" : "#666666",
         irish: "#5D5FEF",
+        white: '#FFFF'
       },
     },
     typography: {
@@ -50,6 +51,12 @@ export default function App() {
       h4: {
         fontFamily: "Roboto Slab",
       },
+      h5: {
+        fontFamily: "Roboto Slab",
+      },
+      h6: {
+        fontFamily: "Roboto Slab",
+      },
     },
   });
 
@@ -58,9 +65,9 @@ export default function App() {
       <CssBaseline />
       
       <Header  toggleThemeMode={toggleThemeMode} darkMode={darkMode}/>
-    
+      
       <div >
-        <Container >
+        <Container>
           <AppRoutes darkMode={darkMode} />
         </Container>
         <Footer />

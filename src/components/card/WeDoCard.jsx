@@ -1,8 +1,11 @@
+import { Card } from '@mui/material'
 import React from 'react'
 
 const WeDoCard = () => {
   return (
-    <div>WeDoCard</div>
+    <>
+    <Card elevation='4' P={4}>Hello</Card>
+    </>
   )
 }
 

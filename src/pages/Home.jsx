@@ -6,6 +6,7 @@ import WeDoSection from "./home/WeDoSection";
 import TestimonialSection from "./home/TestimonialSection";
 import ProjectSection from "./home/ProjectSection";
 import QASection from "./home/QASection";
+import WeDoCard from "../components/card/WeDoCard";
 
 const Home = () => {
   return (
@@ -58,6 +59,7 @@ const Home = () => {
       v
 
       <div>svdds</div><div>svdds</div>
+      <WeDoCard/>
 
 
     </div>
