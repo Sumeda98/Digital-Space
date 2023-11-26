@@ -152,6 +152,18 @@ export default function Header({ toggleThemeMode, darkMode }) {
             </Box>
             <IconButton
               color="primary"
+              onClick={toggleThemeMode}
+              sx={{ml:10, display: { xs: "flex", md: "none" } }}
+            >
+              {darkMode ? (
+                    <DarkModeIcon />
+                  ) : (
+                    <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
+                  )}
+            </IconButton>
+           
+            <IconButton
+              color="primary"
               onClick={handleDrawerOpen}
               sx={{ display: { xs: "flex", md: "none" } }}
             >
@@ -160,25 +172,50 @@ export default function Header({ toggleThemeMode, darkMode }) {
           </Toolbar>
         </AppBar>
         <Drawer
+        
           anchor="right"
           open={isDrawerOpen}
           onClose={handleDrawerClose}
           sx={{ display: { xs: "block", md: "none" } }}
         >
-          <List sx={{ mx: 10 }}>
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <ListItem onClick={handleDrawerClose}>Home</ListItem>
+          <Box sx={{width:300}}>
+          <List >
+            <ListItem>
+            <IconButton
+              color="primary"
+              onClick={handleClickOpenDialog}
+              sx={{ display: { xs: "flex", md: "none" } }}
+            >
+              <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
+            </IconButton>
+           
+            </ListItem>
+            <Link to="/" style={{ textDecoration: "none", }}>
+              <ListItem sx={{ color:isActive("/") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Home</ListItem>
             </Link>
             <Divider />
             <Link to="services" style={{ textDecoration: "none" }}>
-              <ListItem onClick={handleDrawerClose}>Service</ListItem>
+              <ListItem sx={{ color:isActive("/services") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Service</ListItem>
             </Link>
             <Divider />
             <Link to="contact" style={{ textDecoration: "none" }}>
-              <ListItem onClick={handleDrawerClose}>Contact</ListItem>
+              <ListItem sx={{ color:isActive("/contact") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Contact</ListItem>
             </Link>
             <Divider />
+            <ListItem sx={{display:'flex', justifyContent:'center'}}>
+            <Button
+                  sx={{ width:'100%',textTransform: "capitalize", p: 1, px: 3 }}
+                  variant="contained"
+                  endIcon={<KeyboardArrowRightIcon />}
+                >
+                  Let's Start
+                </Button>
+            </ListItem>
+            
+           
+           
           </List>
+          </Box>
         </Drawer>
         <AppRoutes />
       </Container>
