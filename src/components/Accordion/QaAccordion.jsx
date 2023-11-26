@@ -24,7 +24,7 @@ const QaAccordion = () => {
       <Accordion className={classes.accordion}>
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon sx={{ color: theme.palette.primary.main }} />
+            <ExpandMoreIcon sx={{ color: theme.palette.primary.main, }} />
           }
           aria-controls="panel1a-content"
           id="panel1a-header"
