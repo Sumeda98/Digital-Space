@@ -3,6 +3,11 @@ import React from "react";
 import WeDoCard from "../../components/card/WeDoCard";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import { useTheme } from "@emotion/react";
+import PanToolAltOutlinedIcon from '@mui/icons-material/PanToolAltOutlined';
+import WebAssetOutlinedIcon from '@mui/icons-material/WebAssetOutlined';
+import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
+import AdUnitsOutlinedIcon from '@mui/icons-material/AdUnitsOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 
 const WeDoSection = () => {
   const theme = useTheme();
@@ -21,8 +26,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
           <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<DesignServicesIcon  sx={{fontSize:{xs:30,md:35}, color:theme.palette.primary.main}}/>}
+            title="UI UX Design"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus
@@ -38,8 +43,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
           <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<PanToolAltOutlinedIcon  sx={{fontSize:{xs:30,md:35}, color:theme.palette.primary.main}}/>}
+            title="SEO"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus
@@ -55,8 +60,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
         <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<WebAssetOutlinedIcon  sx={{fontSize:{xs:30,md:35},color:theme.palette.primary.main}}/>}
+            title="Web Design"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus
@@ -72,8 +77,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
           <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<TerminalOutlinedIcon  sx={{fontSize:{xs:30,md:35},color:theme.palette.primary.main}}/>}
+            title="Software Development"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus
@@ -89,8 +94,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
          <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<AdUnitsOutlinedIcon  sx={{ fontSize:{xs:30,md:35},color:theme.palette.primary.main}}/>}
+            title="Mobile App Development"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus
@@ -106,8 +111,8 @@ const WeDoSection = () => {
           alignContent="center"
         >
           <WeDoCard
-            icon={<DesignServicesIcon  sx={{display:'flex', alignItems:'end', color:theme.palette.primary.main}}/>}
-            title="Title"
+            icon={<GroupsOutlinedIcon  sx={{ fontSize:{xs:30,md:35},color:theme.palette.primary.main}}/>}
+            title="Team Augmentation"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
             odio inventore maiores accusantium, aperiam corporis error doloribus

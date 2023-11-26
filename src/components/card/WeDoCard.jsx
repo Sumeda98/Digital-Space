@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Card, Stack, Typography } from "@mui/material";
+import { Card, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import LearnMoreBtn from "../button/LearnMoreBtn";
 
@@ -17,14 +17,14 @@ const WeDoCard = (props) => {
           borderColor: theme.palette.mode === "dark" ? "#2b2b2b" : "#dbdbdb",
         }}
       >
-        <Stack >
-          {props.icon}
-          <Typography textAlign="center" variant="h6">
+        <Grid container>
+          <Grid item xs={1}>{props.icon}</Grid>
+          <Grid item xs={10}><Typography  textAlign="center" variant="h6">
             {props.title}
-          </Typography>
-        </Stack>
+          </Typography></Grid>
+        </Grid>
         <Stack sx={{ mt: 2 }}>
-          <Typography color="text.secondary" variant="body2">
+          <Typography textAlign='justify' color="text.secondary" variant="body2">
             {props.description}
           </Typography>
         </Stack>
