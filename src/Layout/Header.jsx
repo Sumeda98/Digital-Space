@@ -2,10 +2,24 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import { Typography, Button, Container, Grid, Drawer, List, ListItem, Divider,SliverAppBar,Sliver } from "@mui/material";
+import {
+  Typography,
+  Button,
+  Container,
+  Grid,
+  Drawer,
+  List,
+  ListItem,
+  Divider,
+  SliverAppBar,
+  Sliver,
+  TextareaAutosize,
+  TextField,
+  InputAdornment,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Logo from "../assets/brand/Logo.svg";
@@ -13,11 +27,25 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppRoutes from "../routes/AppRoutes";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 export default function Header({ toggleThemeMode, darkMode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+  const handleClickOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -30,20 +58,24 @@ export default function Header({ toggleThemeMode, darkMode }) {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <Box sx={{ flexGrow: 1, }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Container>
         <AppBar
           elevation="1"
           position="sticky"
           sx={{
-            mt:1,
+            mt: 1,
             borderRadius: 2,
             backgroundColor: darkMode ? "#121212" : "white",
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <Link to="/" style={{ textDecoration: "none" }}>
-              <img src={Logo} alt="Logo" style={{ maxWidth: "80%", height: "auto" }} />
+              <img
+                src={Logo}
+                alt="Logo"
+                style={{ maxWidth: "80%", height: "auto" }}
+              />
             </Link>
             <Box
               sx={{
@@ -65,9 +97,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="services" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  color={
-                    isActive("/services") ? "text.iris" : "text.secondary"
-                  }
+                  color={isActive("/services") ? "text.iris" : "text.secondary"}
                   sx={{
                     paddingLeft: "30px",
                     fontWeight: isActive("/services") ? 500 : 500,
@@ -97,7 +127,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               }}
             >
               <div>
-                <IconButton>
+                <IconButton onClick={handleClickOpenDialog}>
                   <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
                 </IconButton>
               </div>
@@ -112,7 +142,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               </div>
               <div>
                 <Button
-                sx={{textTransform:'capitalize',p:1,px:3}}
+                  sx={{ textTransform: "capitalize", p: 1, px: 3 }}
                   variant="contained"
                   endIcon={<KeyboardArrowRightIcon />}
                 >
@@ -125,7 +155,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               onClick={handleDrawerOpen}
               sx={{ display: { xs: "flex", md: "none" } }}
             >
-              <MenuIcon sx={{fontSize:35}}/>
+              <MenuIcon sx={{ fontSize: 35 }} />
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -133,21 +163,52 @@ export default function Header({ toggleThemeMode, darkMode }) {
           anchor="right"
           open={isDrawerOpen}
           onClose={handleDrawerClose}
-          sx={{ display: { xs: "block", md: "none" }}}
+          sx={{ display: { xs: "block", md: "none" } }}
         >
-          
-            <List sx={{mx:10}}>
-              <ListItem>Home</ListItem>
-              <Divider/>
-              <ListItem>Home</ListItem>
-              <Divider/>
-              <ListItem>Home</ListItem>
-              <Divider/>
-            </List>
-          
+          <List sx={{ mx: 10 }}>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <ListItem onClick={handleDrawerClose}>Home</ListItem>
+            </Link>
+            <Divider />
+            <Link to="services" style={{ textDecoration: "none" }}>
+              <ListItem onClick={handleDrawerClose}>Service</ListItem>
+            </Link>
+            <Divider />
+            <Link to="contact" style={{ textDecoration: "none" }}>
+              <ListItem onClick={handleDrawerClose}>Contact</ListItem>
+            </Link>
+            <Divider />
+          </List>
         </Drawer>
-        <AppRoutes/>
+        <AppRoutes />
       </Container>
+      <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description">
+        <DialogTitle id="alert-dialog-title">
+          {"Search here what you want"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+          <TextField
+            label='Search..'
+            size="small"
+              variant="filled"
+              color="primary"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton>
+                      <SearchIcon color="primary" />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+                style: { backgroundColor: "white", borderRadius: '10px',},
+              }}
+            />
+          </DialogContentText>
+        </DialogContent>
+        
+      </Dialog>
     </Box>
   );
 }

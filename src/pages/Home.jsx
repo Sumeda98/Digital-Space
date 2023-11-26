@@ -12,7 +12,9 @@ const Home = () => {
   return (
     <div>
       <HeroSection />
-      <ClientSection />
+      <div style={{ display: "flow", minWidth: "100%" }}>
+        <ClientSection />
+      </div>
       <WeDoSection />
       <TestimonialSection />
       <ProjectSection />

@@ -1,7 +1,7 @@
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
-import HeroIMG from "../../assets/images/HeroIMG.svg";
-import HeroIMG_Mobile from "../../assets/images/HeroIMG_Mobile.svg";
+import HeroIMG from "../../assets/images/HeroIMG.png";
+import HeroIMG_Mobile from "../../assets/images/HeroIMG_Mobile.png";
 import { useTheme } from "@emotion/react";
 import Typewriter from "typewriter-effect";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -13,7 +13,7 @@ const HeroSection = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
-    <>
+    <div>
       <Grid
         spacing={4}
         container
@@ -24,7 +24,7 @@ const HeroSection = () => {
           xs={12}
           md={6}
           sx={{
-            mt: isMobile ? 4 : 0,
+            mt: isMobile ? 8 : 0,
             display: "flex",
             alignItems: "center",
             justifyContent: { xs: "center", md: "left" },
@@ -95,11 +95,11 @@ const HeroSection = () => {
           <img
             src={isMobile ? HeroIMG_Mobile : HeroIMG}
             alt="hero"
-            style={{ maxWidth: "100%", height: "auto" }}
+            style={{ maxWidth: "100%", height: "auto",marginTop:isMobile ? '40px':'0px' }}
           />
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
