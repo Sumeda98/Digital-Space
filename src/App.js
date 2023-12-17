@@ -21,6 +21,16 @@ export default function App() {
   const primaryColor = '#5D5FEF';
 
   const theme = createTheme({
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            boxShadow: 'none',
+           
+          },
+        },
+      },
+    },
     palette: {
       mode: darkMode ? "dark" : "light",
       background: {
@@ -65,9 +75,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      
       <Header  toggleThemeMode={toggleThemeMode} darkMode={darkMode}/>
-      
       <Footer />
     </ThemeProvider>
   );
