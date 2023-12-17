@@ -32,12 +32,15 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Form from "../components/Form/Form";
+import CloseIcon from '@mui/icons-material/Close';
 
 export default function Header({ toggleThemeMode, darkMode }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
   const [openDialog, setOpenDialog] = React.useState(false);
+  const [isFormOpen, setFormOpen] = React.useState(false);
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
@@ -53,6 +56,14 @@ export default function Header({ toggleThemeMode, darkMode }) {
 
   const handleDrawerClose = () => {
     setDrawerOpen(false);
+  };
+
+  const handleFormOpen = () => {
+    setFormOpen(true);
+  };
+
+  const handleFormClose = () => {
+    setFormOpen(false);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -145,6 +156,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   sx={{ textTransform: "capitalize", p: 1, px: 3 }}
                   variant="contained"
                   endIcon={<KeyboardArrowRightIcon />}
+                  onClick={handleFormOpen}
                 >
                   Let's Start
                 </Button>
@@ -153,15 +165,15 @@ export default function Header({ toggleThemeMode, darkMode }) {
             <IconButton
               color="primary"
               onClick={toggleThemeMode}
-              sx={{ml:10, display: { xs: "flex", md: "none" } }}
+              sx={{ ml: 10, display: { xs: "flex", md: "none" } }}
             >
               {darkMode ? (
-                    <DarkModeIcon />
-                  ) : (
-                    <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
-                  )}
+                <DarkModeIcon />
+              ) : (
+                <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
+              )}
             </IconButton>
-           
+
             <IconButton
               color="primary"
               onClick={handleDrawerOpen}
@@ -171,64 +183,105 @@ export default function Header({ toggleThemeMode, darkMode }) {
             </IconButton>
           </Toolbar>
         </AppBar>
+        {/* =============== Menu Drawer=========== */}
         <Drawer
-        
           anchor="right"
           open={isDrawerOpen}
           onClose={handleDrawerClose}
           sx={{ display: { xs: "block", md: "none" } }}
         >
-          <Box sx={{width:300}}>
-          <List >
-            <ListItem>
-            <IconButton
-              color="primary"
-              onClick={handleClickOpenDialog}
-              sx={{ display: { xs: "flex", md: "none" } }}
-            >
-              <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
-            </IconButton>
-           
-            </ListItem>
-            <Link to="/" style={{ textDecoration: "none", }}>
-              <ListItem sx={{ color:isActive("/") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Home</ListItem>
-            </Link>
-            <Divider />
-            <Link to="services" style={{ textDecoration: "none" }}>
-              <ListItem sx={{ color:isActive("/services") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Service</ListItem>
-            </Link>
-            <Divider />
-            <Link to="contact" style={{ textDecoration: "none" }}>
-              <ListItem sx={{ color:isActive("/contact") ? "text.iris" : "text.secondary"}} onClick={handleDrawerClose}>Contact</ListItem>
-            </Link>
-            <Divider />
-            <ListItem sx={{display:'flex', justifyContent:'center'}}>
-            <Button
-                  sx={{ width:'100%',textTransform: "capitalize", p: 1, px: 3 }}
+          <Box sx={{ width: 300 }}>
+            <List>
+              <ListItem>
+                <IconButton
+                  color="primary"
+                  onClick={handleClickOpenDialog}
+                  sx={{ display: { xs: "flex", md: "none" } }}
+                >
+                  <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
+                </IconButton>
+              </ListItem>
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <ListItem
+                  sx={{ color: isActive("/") ? "text.iris" : "text.secondary" }}
+                  onClick={handleDrawerClose}
+                >
+                  Home
+                </ListItem>
+              </Link>
+              <Divider />
+              <Link to="services" style={{ textDecoration: "none" }}>
+                <ListItem
+                  sx={{
+                    color: isActive("/services")
+                      ? "text.iris"
+                      : "text.secondary",
+                  }}
+                  onClick={handleDrawerClose}
+                >
+                  Service
+                </ListItem>
+              </Link>
+              <Divider />
+              <Link to="contact" style={{ textDecoration: "none" }}>
+                <ListItem
+                  sx={{
+                    color: isActive("/contact")
+                      ? "text.iris"
+                      : "text.secondary",
+                  }}
+                  onClick={handleDrawerClose}
+                >
+                  Contact
+                </ListItem>
+              </Link>
+              <Divider />
+              <ListItem sx={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  elevation={0}
+                  sx={{
+                    width: "100%",
+                    textTransform: "capitalize",
+                    p: 1,
+                    px: 3,
+                  }}
                   variant="contained"
                   endIcon={<KeyboardArrowRightIcon />}
                 >
                   Let's Start
                 </Button>
-            </ListItem>
-            
-           
-           
-          </List>
+              </ListItem>
+            </List>
           </Box>
         </Drawer>
+        {/* =============== End Menu Drawer=========== */}
+        {/* =============== Form Drawer=========== */}
+        <Drawer anchor="left" open={isFormOpen}
+          onClose={handleFormClose}>
+          <Box sx={{ width:900,p:4, backgroundColor:'#f5f5f5' }}>
+            <Form handleFormClose={handleFormClose}/>
+            <IconButton onClick={handleFormClose} sx={{ position: "absolute", top: 8, right: 8 }}>
+    <CloseIcon />
+  </IconButton>
+          </Box>
+        </Drawer>
+        {/* =============== End Form Drawer=========== */}
         <AppRoutes />
       </Container>
-      <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description">
+      <Dialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
         <DialogTitle id="alert-dialog-title">
           {"Search here what you want"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-          <TextField
-            label='Search..'
-            size="small"
+            <TextField
+              label="Search.."
+              size="small"
               variant="filled"
               color="primary"
               InputProps={{
@@ -239,12 +292,11 @@ export default function Header({ toggleThemeMode, darkMode }) {
                     </IconButton>
                   </InputAdornment>
                 ),
-                style: { backgroundColor: "white", borderRadius: '10px',},
+                style: { backgroundColor: "white", borderRadius: "10px" },
               }}
             />
           </DialogContentText>
         </DialogContent>
-        
       </Dialog>
     </Box>
   );
