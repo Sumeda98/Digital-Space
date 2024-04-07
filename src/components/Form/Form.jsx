@@ -107,15 +107,15 @@ function Form({handleFormClose}) {
           </RadioGroup>
         </Grid>
         <Grid item container xs={12} spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Typography>Name</Typography>
             <MyTextField type="text"  placeholder="Name" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Typography>Last Name</Typography>
             <MyTextField type="text"  placeholder="Last Name" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Typography>Mobile Number</Typography>
             <MuiPhoneNumber
           label=""
@@ -137,7 +137,7 @@ function Form({handleFormClose}) {
             }}
           />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Stack direction="row">
               <Typography>Email</Typography>
               <Typography sx={{ml:2}} variant="body2" color="error">
@@ -147,15 +147,15 @@ function Form({handleFormClose}) {
             <MyTextField onChange={handleChangeEmail} type="text"  placeholder="Email" />
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
             <Typography>Company Name</Typography>
             <MyTextField type="text"  placeholder="Company Name" />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Typography>Web Url</Typography>
             <MyTextField type="text"  placeholder="Web Url" />
           </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
           <Typography>Service</Typography>
           
           <div>

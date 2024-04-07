@@ -15,7 +15,9 @@ const Home = () => {
       <div style={{ display: "flow", minWidth: "100%" }}>
         <ClientSection />
       </div>
+      <div style={{display:'flex', justifyContent:'center'}}>
       <WeDoSection />
+      </div>
       <TestimonialSection />
       <ProjectSection />
       <QASection />

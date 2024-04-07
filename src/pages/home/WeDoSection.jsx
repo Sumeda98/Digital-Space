@@ -12,7 +12,7 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 const WeDoSection = () => {
   const theme = useTheme();
   return (
-    <div style={{ marginTop: "40px" }}>
+    <div style={{ marginTop: "40px" ,}}>
       <Typography textAlign="center" variant="h4" sx={{ fontWeight: 600 }}>
         What We Do
       </Typography>

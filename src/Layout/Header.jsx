@@ -238,6 +238,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Divider />
               <ListItem sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
+                onClick={handleFormOpen}
                   elevation={0}
                   sx={{
                     width: "100%",
@@ -258,7 +259,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
         {/* =============== Form Drawer=========== */}
         <Drawer anchor="left" open={isFormOpen}
           onClose={handleFormClose}>
-          <Box sx={{ width:900,p:4, backgroundColor:'#f5f5f5' }}>
+          <Box sx={{ width:{xs:350,sm:500,md:900},p:4, backgroundColor:'#f5f5f5' }}>
             <Form handleFormClose={handleFormClose}/>
             <IconButton onClick={handleFormClose} sx={{ position: "absolute", top: 8, right: 8 }}>
     <CloseIcon />

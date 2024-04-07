@@ -1,12 +1,10 @@
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
-import { Container, Grid } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import React, { useState } from "react";
 import "@fontsource/roboto";
 import "@fontsource/roboto-slab";
-import AppRoutes from "./routes/AppRoutes";
 
 export default function App() {
   const storedThemeMode = localStorage.getItem("themeMode");
@@ -34,7 +32,7 @@ export default function App() {
     palette: {
       mode: darkMode ? "dark" : "light",
       background: {
-        default: darkMode ? "#121212" : "#FFF",
+        default: darkMode ? "#121212" : "#FFFF",
       },
       primary: {
         main: primaryColor,
