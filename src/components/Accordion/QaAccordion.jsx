@@ -8,23 +8,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useTheme } from "@emotion/react";
 
-const useStyles = makeStyles((theme) => ({
-  accordion: {
-    padding: "16px",
-    borderRadius: "20px",
-  },
-}));
-
 const QaAccordion = () => {
-  const classes = useStyles();
   const theme = useTheme();
 
   return (
     <div>
-      <Accordion className={classes.accordion}>
+      <Accordion
+      elevation={0}
+        sx={{
+          padding: "16px",
+          borderRadius: "20px",
+          border: "2px solid",
+          borderColor: theme.palette.mode === "dark" ? "#2b2b2b" : "#dbdbdb",
+        }}
+      >
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon sx={{ color: theme.palette.primary.main, }} />
+            <ExpandMoreIcon sx={{ color: theme.palette.primary.main }} />
           }
           aria-controls="panel1a-content"
           id="panel1a-header"
@@ -33,7 +33,7 @@ const QaAccordion = () => {
             sx={{ color: theme.palette.primary.main, mr: 2, mt: "4px" }}
           />
           <Typography variant="h6" sx={{ fontSize: "18px" }}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
+            Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </Typography>
         </AccordionSummary>

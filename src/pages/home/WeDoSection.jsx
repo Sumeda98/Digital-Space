@@ -12,11 +12,14 @@ import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 const WeDoSection = () => {
   const theme = useTheme();
   return (
-    <div style={{ marginTop: "40px" ,}}>
+   
+    <div style={{ marginTop: "40px", display:'grid', justifyItems:'center', }}>
       <Typography textAlign="center" variant="h4" sx={{ fontWeight: 600 }}>
         What We Do
       </Typography>
-      <Grid rowSpacing={2} columnSpacing={2} container xs={12} sx={{ mt: 6 }}>
+      <Grid    display="flex"
+          justifyContent="center"
+          alignContent="center" rowSpacing={2} columnSpacing={2} container xs={12} sx={{ mt: 6 }}>
         <Grid
           item
           xs={12}
@@ -121,6 +124,7 @@ const WeDoSection = () => {
         </Grid>
       </Grid>
     </div>
+   
   );
 };
 

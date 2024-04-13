@@ -11,14 +11,10 @@ import {
   List,
   ListItem,
   Divider,
-  SliverAppBar,
-  Sliver,
-  TextareaAutosize,
   TextField,
   InputAdornment,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import WbSunnyRoundedIcon from "@mui/icons-material/WbSunnyRounded";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
@@ -28,12 +24,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppRoutes from "../routes/AppRoutes";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Form from "../components/Form/Form";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function Header({ toggleThemeMode, darkMode }) {
   const navigate = useNavigate();
@@ -72,11 +67,14 @@ export default function Header({ toggleThemeMode, darkMode }) {
     <Box sx={{ flexGrow: 1 }}>
       <Container>
         <AppBar
-          elevation="1"
+          elevation="0"
           position="sticky"
           sx={{
             mt: 1,
             borderRadius: 2,
+            border: "0.5px solid rgba(145, 158, 171, 0.3)",
+            boxShadow:
+              "rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px",
             backgroundColor: darkMode ? "#121212" : "white",
           }}
         >
@@ -183,6 +181,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
             </IconButton>
           </Toolbar>
         </AppBar>
+       
         {/* =============== Menu Drawer=========== */}
         <Drawer
           anchor="right"
@@ -238,7 +237,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Divider />
               <ListItem sx={{ display: "flex", justifyContent: "center" }}>
                 <Button
-                onClick={handleFormOpen}
+                  onClick={handleFormOpen}
                   elevation={0}
                   sx={{
                     width: "100%",
@@ -257,19 +256,23 @@ export default function Header({ toggleThemeMode, darkMode }) {
         </Drawer>
         {/* =============== End Menu Drawer=========== */}
         {/* =============== Form Drawer=========== */}
-        <Drawer anchor="left" open={isFormOpen}
-          onClose={handleFormClose}>
-          <Box sx={{ width:{xs:350,sm:500,md:900},p:4, backgroundColor:'#f5f5f5' }}>
-            <Form handleFormClose={handleFormClose}/>
-            <IconButton onClick={handleFormClose} sx={{ position: "absolute", top: 8, right: 8 }}>
-    <CloseIcon />
-  </IconButton>
+        {/* <Drawer anchor="left" open={isFormOpen} onClose={handleFormClose}>
+          <Box sx={{ width: { xs: 350, sm: 500, md: 900 }, p: 4 }}>
+            <Form handleFormClose={handleFormClose} />
+            <IconButton
+              onClick={handleFormClose}
+              sx={{ position: "absolute", top: 8, right: 8 }}
+            >
+              <CloseIcon />
+            </IconButton>
           </Box>
-        </Drawer>
+        </Drawer> */}
         {/* =============== End Form Drawer=========== */}
         <AppRoutes />
+      
       </Container>
       <Dialog
+        fullWidth
         open={openDialog}
         onClose={handleCloseDialog}
         aria-labelledby="alert-dialog-title"
@@ -281,6 +284,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <TextField
+              fullWidth
               label="Search.."
               size="small"
               variant="filled"

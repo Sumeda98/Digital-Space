@@ -24,10 +24,19 @@ export default function App() {
         styleOverrides: {
           root: {
             boxShadow: 'none',
+            fontFamily: "Allerta",
+            fontSize:'1rem'
            
           },
         },
       },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            boxShadow: 'rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px',
+          }
+        }
+      },
     },
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -50,22 +59,22 @@ export default function App() {
     typography: {
       fontFamily: "Roboto",
       h1: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
       h2: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
       h3: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
       h4: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
       h5: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
       h6: {
-        fontFamily: "Roboto Slab",
+        fontFamily: "Allerta",
       },
     },
   });

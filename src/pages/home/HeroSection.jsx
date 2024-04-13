@@ -41,7 +41,7 @@ const HeroSection = () => {
             <Typography
               sx={{ fontWeight: 600 }}
               textAlign={isMobile ? "center" : "left"}
-              variant={isMobile ? "h5" : "h4"}
+              variant={isMobile ? "h5" : "h3"}
             >
               We'll help you reach new heights in the{" "}
               <span style={{ color: theme.palette.primary.main }}>
