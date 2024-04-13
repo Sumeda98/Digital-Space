@@ -5,7 +5,6 @@ import {
   FormControl,
   FormControlLabel,
   Grid,
-  Paper,
   Radio,
   RadioGroup,
   Stack,
@@ -14,22 +13,15 @@ import {
 } from "@mui/material";
 import React from "react";
 import MuiPhoneNumber from "material-ui-phone-number";
-import { Dialog, DialogActions, DialogContent, DialogContentText } from "@material-ui/core";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+} from "@material-ui/core";
 
 
-const MyTextField = styled.input`
-  width: 100%;
-  background-color: white;
-  border: 0px solid #ddd;
-  border-radius: 5px;
-  padding: 15px;
-  outline: none;
-  &:hover {
-   
-  }
-`;
-
-function Form({handleFormClose}) {
+function Form({ handleFormClose }) {
   const [value, setValue] = React.useState("Individual");
   const [valueEmail, setValueEmail] = React.useState();
   const [error, setError] = React.useState();
@@ -57,7 +49,19 @@ function Form({handleFormClose}) {
 
   const submit = () => {};
 
-  const options = ['Logo Design', 'Print Design', 'Brand Design', 'Protein','Web Design', 'SEO', 'SEM', 'Lead Gen', 'PPC', 'Web Development', 'Corporate package'];
+  const options = [
+    "Logo Design",
+    "Print Design",
+    "Brand Design",
+    "Protein",
+    "Web Design",
+    "SEO",
+    "SEM",
+    "Lead Gen",
+    "PPC",
+    "Web Development",
+    "Corporate package",
+  ];
 
   const handleChipClick = (option) => {
     const newOptions = [...selectedOptions];
@@ -67,7 +71,7 @@ function Form({handleFormClose}) {
       newOptions.push(option);
     }
     setSelectedOptions(newOptions);
-    console.log(option)
+    console.log(option);
   };
 
   const handleClickOpenDialog = () => {
@@ -80,121 +84,113 @@ function Form({handleFormClose}) {
 
   return (
     <div>
-    <FormControl sx={{ width: "100%",}}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h4">Get In Touch</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <RadioGroup
-            aria-labelledby="demo-controlled-radio-buttons-group"
-            name="controlled-radio-buttons-group"
-            value={value}
-            onChange={handleChange}
-          >
-            <Stack direction="row">
-              <FormControlLabel
-                value="Individual"
-                control={<Radio size="small" />}
-                label="Individual"
+      <FormControl sx={{ width: "100%" }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h4">Get In Touch</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={value}
+              onChange={handleChange}
+            >
+              <Stack direction="row">
+                <FormControlLabel
+                  value="Individual"
+                  control={<Radio size="small" />}
+                  label="Individual"
+                />
+                <FormControlLabel
+                  value="Corporate"
+                  control={<Radio size="small" />}
+                  label="Corporate"
+                />
+              </Stack>
+            </RadioGroup>
+          </Grid>
+          <Grid item container xs={12} spacing={4}>
+            <Grid item xs={12} md={6}>
+              <TextField fullWidth label="Name" variant="outlined" />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField fullWidth label="Last Name" variant="outlined" />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <MuiPhoneNumber
+                label=""
+                variant="outlined"
+                sx={{
+                  width: "100%",
+                  borderRadius: 2,
+                  height: 50,
+                }}
+                readOnly={false}
+                defaultCountry="au"
               />
-              <FormControlLabel
-                value="Corporate"
-                control={<Radio size="small" />}
-                label="Corporate"
-              />
-            </Stack>
-          </RadioGroup>
-        </Grid>
-        <Grid item container xs={12} spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Typography>Name</Typography>
-            <MyTextField type="text"  placeholder="Name" />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              
+                <Typography sx={{ ml: 8,position:'absolute' }} variant="body2" color="error">
+                  {error}
+                </Typography>
+           
+              <TextField fullWidth label="Email" variant="outlined" onChange={handleChangeEmail}/>
+              
+            </Grid>
+            <Grid item xs={12} md={6}>
+          <TextField fullWidth label="Company Name" variant="outlined" />
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography>Last Name</Typography>
-            <MyTextField type="text"  placeholder="Last Name" />
+          <TextField fullWidth label="Web Url" variant="outlined" />  
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Typography>Mobile Number</Typography>
-            <MuiPhoneNumber
-          label=""
-          variant="outlined"
-            sx={{ width: "100%", backgroundColor:'white', borderRadius:2, height:50 }}
-            readOnly={false}
-            defaultCountry="au"
-            InputProps={{
-              sx: {
-                ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-                "&:hover": {
-                  ".css-1d3z3hw-MuiOutlinedInput-notchedOutline": {
-                    border: "none",
-                  },
-                },
-              },
-            }}
-          />
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Stack direction="row">
-              <Typography>Email</Typography>
-              <Typography sx={{ml:2}} variant="body2" color="error">
-                {error}
-              </Typography>
-            </Stack>
-            <MyTextField onChange={handleChangeEmail} type="text"  placeholder="Email" />
+         
+          <Grid item xs={12} md={10}>
+            <Typography> Service </Typography>
+            <div>
+              {options.map((option, index) => (
+                <Chip
+                  key={option}
+                  label={option}
+                  selected={selectedOptions.includes(option)}
+                  onClick={() => handleChipClick(option)}
+                  varian={
+                    selectedOptions.includes(option) ? "filled" : "outlined"
+                  }
+                  style={{ marginRight: 10, marginTop: 10 }}
+                />
+              ))}
+            </div>
+          </Grid>
+          <Grid item xs={12}>
+          <TextField fullWidth label="arketing Budget" variant="outlined" />  
+
+          </Grid>
+          <Grid item xs={12}>
+          <TextField fullWidth label="Note" variant="outlined" />  
+          </Grid>
+          <Grid item xs={12} display="flex" justifyContent="right">
+            <Button
+              onClick={handleClickOpenDialog}
+              variant="contained"
+              sx={{ textTransform: "none" }}
+            >
+              Submit
+            </Button>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={6}>
-            <Typography>Company Name</Typography>
-            <MyTextField type="text"  placeholder="Company Name" />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Typography>Web Url</Typography>
-            <MyTextField type="text"  placeholder="Web Url" />
-          </Grid>
-        <Grid item xs={12} md={8}>
-          <Typography>Service</Typography>
-          
-          <div>
-      {options.map((option, index) => (
-        <Chip
-          key={option}
-          label={option}
-          selected={selectedOptions.includes(option)}
-          onClick={() => handleChipClick(option)}
-          variant={selectedOptions.includes(option) ? "filled" : "outlined"}
-          style={{ marginRight: 10, marginTop: 10}} 
-        />
-      ))}
-    </div>
-    
-        </Grid>
-        <Grid item xs={12}>
-          <Typography>Marketing Budget</Typography>
-          <MyTextField  type="text"  placeholder="$0000.00" />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography>Note</Typography>
-          <MyTextField  type="text"  placeholder="" />
-        </Grid>
-        <Grid item xs={12} display="flex" justifyContent="right">
-          <Button onClick={handleClickOpenDialog} variant="contained" sx={{textTransform:'none'}} >Submit</Button>
-        </Grid>
-      </Grid>
-    </FormControl>
-    <Dialog
+      </FormControl>
+      <Dialog
         open={openDialog}
         keepMounted
         onClose={handleCloseDialog}
         aria-describedby="alert-dialog-slide-description"
       >
-        
         <DialogContent>
           <DialogContentText>
-            One of our experts will get in touch with you soon !
+            One of our experts will get in touch with you soon !
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{ display: "flex", justifyContent: "center" }}>
