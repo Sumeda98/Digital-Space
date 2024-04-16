@@ -4,7 +4,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { makeStyles } from "@material-ui/core/styles";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { useTheme } from "@emotion/react";
 
@@ -17,9 +16,14 @@ const QaAccordion = () => {
       elevation={0}
         sx={{
           padding: "16px",
-          borderRadius: "20px",
-          border: "2px solid",
+          borderRadius: "10px !important",
+          border: "1.5px solid",
           borderColor: theme.palette.mode === "dark" ? "#2b2b2b" : "#dbdbdb",
+          boxShadow: theme.palette.mode === "dark" ? 
+          
+          '0 1px 2px 0 rgb(54, 54, 54), 0 -1px 1px 0 rgba(226,232,237,.04)'
+          :
+          '0 8px 13px 0 rgba(226,227,237,.73), 0 -2px 7px 0 rgba(226,232,237,.04)'
         }}
       >
         <AccordionSummary

@@ -15,11 +15,13 @@ import {
   InputAdornment,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+
+import { GoSun } from "react-icons/go";
+
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Logo from "../assets/brand/Logo.svg";
-import SearchIcon from "@mui/icons-material/Search";
+import { IoSearchOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppRoutes from "../routes/AppRoutes";
@@ -31,54 +33,47 @@ import Form from "../components/Form/Form";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function Header({ toggleThemeMode, darkMode }) {
-  const navigate = useNavigate();
+
   const location = useLocation();
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
   const [openDialog, setOpenDialog] = React.useState(false);
   const [isFormOpen, setFormOpen] = React.useState(false);
 
-  const handleClickOpenDialog = () => {
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpenDialog(false);
-  };
-
-  const handleDrawerOpen = () => {
-    setDrawerOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setDrawerOpen(false);
-  };
-
-  const handleFormOpen = () => {
-    setFormOpen(true);
-  };
-
-  const handleFormClose = () => {
-    setFormOpen(false);
-  };
+  const handleClickOpenDialog = () => { setOpenDialog(true);};
+  const handleCloseDialog = () => {setOpenDialog(false);};
+  const handleDrawerOpen = () => {setDrawerOpen(true);};
+  const handleDrawerClose = () => {setDrawerOpen(false);};
+  const handleFormOpen = () => {setFormOpen(true);};
+  const handleFormClose = () => {setFormOpen(false);};
 
   const isActive = (path) => location.pathname === path;
 
+  const pages = [
+    {path: "/", label: "Home"},
+    {path: "/about-us", label: "About us"},
+    {path: "/services", label: "Services"},
+    {path: "/contact", label: "Contact"},
+    {path: "/blog", label: "Contact"},
+  ]
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Container>
-        <AppBar
-          elevation="0"
-          position="sticky"
-          sx={{
-            mt: 1,
-            borderRadius: 2,
-            border: "0.5px solid rgba(145, 158, 171, 0.3)",
-            boxShadow:
-              "rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px",
-            backgroundColor: darkMode ? "#121212" : "white",
-          }}
-        >
-          <Toolbar sx={{ justifyContent: "space-between" }}>
+      <AppBar
+        elevation="0"
+        position="sticky"
+        sx={{
+          paddingBlock: 1,
+          // mt: 1,
+          // borderRadius: 2,
+          // border: "0.5px solid rgba(145, 158, 171, 0.3)",
+          boxShadow: darkMode
+            ? "rgba(145, 158, 171, 0.4) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 1px 20px -1px"
+            : "rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px",
+          backgroundColor: darkMode ? "#121212" : "white",
+        }}
+      >
+        <Container>
+          <Toolbar sx={{ padding: "0px !important" , justifyContent:'space-between'}}>
             <Link to="/" style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
@@ -97,8 +92,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="/" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  sx={{ fontWeight: isActive("/") ? 500 : 500 }}
-                  color={isActive("/") ? "text.iris" : "text.secondary"}
+                  color={isActive("/") ? "text.iris" : "text.primary"}
                 >
                   Home
                 </Typography>
@@ -106,10 +100,9 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="services" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  color={isActive("/services") ? "text.iris" : "text.secondary"}
+                  color={isActive("/services") ? "text.iris" : "text.primary"}
                   sx={{
                     paddingLeft: "30px",
-                    fontWeight: isActive("/services") ? 500 : 500,
                   }}
                 >
                   Service
@@ -118,10 +111,9 @@ export default function Header({ toggleThemeMode, darkMode }) {
               <Link to="contact" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="body1"
-                  color={isActive("/contact") ? "text.iris" : "text.secondary"}
+                  color={isActive("/contact") ? "text.iris" : "text.primary"}
                   sx={{
                     paddingLeft: "30px",
-                    fontWeight: isActive("/contact") ? 500 : 500,
                   }}
                 >
                   Contact
@@ -132,12 +124,15 @@ export default function Header({ toggleThemeMode, darkMode }) {
               sx={{
                 display: { xs: "none", md: "flex" },
                 alignItems: "center",
+                justifyContent: "right",
                 gap: "10px",
               }}
             >
               <div>
                 <IconButton onClick={handleClickOpenDialog}>
-                  <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
+                  <IoSearchOutline
+                    style={{ color: darkMode ? "#FFFF" : "#222222" }}
+                  />
                 </IconButton>
               </div>
               <div>
@@ -145,7 +140,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
                   {darkMode ? (
                     <DarkModeIcon />
                   ) : (
-                    <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
+                    <GoSun style={{ color: "#222222" }} />
                   )}
                 </IconButton>
               </div>
@@ -168,7 +163,7 @@ export default function Header({ toggleThemeMode, darkMode }) {
               {darkMode ? (
                 <DarkModeIcon />
               ) : (
-                <WbSunnyOutlinedIcon sx={{ color: "#666666" }} />
+                <GoSun sx={{ color: "#666666" }} />
               )}
             </IconButton>
 
@@ -177,86 +172,85 @@ export default function Header({ toggleThemeMode, darkMode }) {
               onClick={handleDrawerOpen}
               sx={{ display: { xs: "flex", md: "none" } }}
             >
-              <MenuIcon sx={{ fontSize: 35 }} />
+              <MenuIcon sx={{ fontSize: 28 }} />
             </IconButton>
           </Toolbar>
-        </AppBar>
-       
-        {/* =============== Menu Drawer=========== */}
-        <Drawer
-          anchor="right"
-          open={isDrawerOpen}
-          onClose={handleDrawerClose}
-          sx={{ display: { xs: "block", md: "none" } }}
-        >
-          <Box sx={{ width: 300 }}>
-            <List>
-              <ListItem>
-                <IconButton
-                  color="primary"
-                  onClick={handleClickOpenDialog}
-                  sx={{ display: { xs: "flex", md: "none" } }}
-                >
-                  <SearchIcon sx={{ color: darkMode ? "#FFFF" : "#666666" }} />
-                </IconButton>
+        </Container>
+      </AppBar>
+
+      {/* =============== Menu Drawer=========== */}
+      <Drawer
+        anchor="right"
+        open={isDrawerOpen}
+        onClose={handleDrawerClose}
+        sx={{ display: { xs: "block", md: "none" } }}
+      >
+        <Box sx={{ width: 300 }}>
+          <List>
+            <ListItem>
+              <IconButton
+                color="primary"
+                onClick={handleClickOpenDialog}
+                sx={{ display: { xs: "flex", md: "none" } }}
+              >
+                <IoSearchOutline
+                  sx={{ color: darkMode ? "#FFFF" : "#666666" }}
+                />
+              </IconButton>
+            </ListItem>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <ListItem
+                sx={{ color: isActive("/") ? "text.iris" : "text.secondary" }}
+                onClick={handleDrawerClose}
+              >
+                Home
               </ListItem>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <ListItem
-                  sx={{ color: isActive("/") ? "text.iris" : "text.secondary" }}
-                  onClick={handleDrawerClose}
-                >
-                  Home
-                </ListItem>
-              </Link>
-              <Divider />
-              <Link to="services" style={{ textDecoration: "none" }}>
-                <ListItem
-                  sx={{
-                    color: isActive("/services")
-                      ? "text.iris"
-                      : "text.secondary",
-                  }}
-                  onClick={handleDrawerClose}
-                >
-                  Service
-                </ListItem>
-              </Link>
-              <Divider />
-              <Link to="contact" style={{ textDecoration: "none" }}>
-                <ListItem
-                  sx={{
-                    color: isActive("/contact")
-                      ? "text.iris"
-                      : "text.secondary",
-                  }}
-                  onClick={handleDrawerClose}
-                >
-                  Contact
-                </ListItem>
-              </Link>
-              <Divider />
-              <ListItem sx={{ display: "flex", justifyContent: "center" }}>
-                <Button
-                  onClick={handleFormOpen}
-                  elevation={0}
-                  sx={{
-                    width: "100%",
-                    textTransform: "capitalize",
-                    p: 1,
-                    px: 3,
-                  }}
-                  variant="contained"
-                  endIcon={<KeyboardArrowRightIcon />}
-                >
-                  Let's Start
-                </Button>
+            </Link>
+            <Divider />
+            <Link to="services" style={{ textDecoration: "none" }}>
+              <ListItem
+                sx={{
+                  color: isActive("/services") ? "text.iris" : "text.secondary",
+                }}
+                onClick={handleDrawerClose}
+              >
+                Service
               </ListItem>
-            </List>
-          </Box>
-        </Drawer>
-        {/* =============== End Menu Drawer=========== */}
-        {/* =============== Form Drawer=========== */}
-        {/* <Drawer anchor="left" open={isFormOpen} onClose={handleFormClose}>
+            </Link>
+            <Divider />
+            <Link to="contact" style={{ textDecoration: "none" }}>
+              <ListItem
+                sx={{
+                  color: isActive("/contact") ? "text.iris" : "text.secondary",
+                }}
+                onClick={handleDrawerClose}
+              >
+                Contact
+              </ListItem>
+            </Link>
+            <Divider />
+            <ListItem sx={{ display: "flex", justifyContent: "center" }}>
+              <Button
+                onClick={handleFormOpen}
+                elevation={0}
+                sx={{
+                  width: "100%",
+                  textTransform: "capitalize",
+                  p: 1,
+                  px: 3,
+                }}
+                variant="contained"
+                endIcon={<KeyboardArrowRightIcon />}
+              >
+                Let's Start
+              </Button>
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
+      {/* =============== End Menu Drawer=========== */}
+      {/* =============== Form Drawer=========== */}
+      {/* <Drawer anchor="left" open={isFormOpen} onClose={handleFormClose}>
           <Box sx={{ width: { xs: 350, sm: 500, md: 900 }, p: 4 }}>
             <Form handleFormClose={handleFormClose} />
             <IconButton
@@ -267,9 +261,9 @@ export default function Header({ toggleThemeMode, darkMode }) {
             </IconButton>
           </Box>
         </Drawer> */}
-        {/* =============== End Form Drawer=========== */}
+      {/* =============== End Form Drawer=========== */}
+      <Container>
         <AppRoutes />
-      
       </Container>
       <Dialog
         fullWidth
@@ -287,13 +281,13 @@ export default function Header({ toggleThemeMode, darkMode }) {
               fullWidth
               label="Search.."
               size="small"
-              variant="filled"
+              variant="outlined"
               color="primary"
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton>
-                      <SearchIcon color="primary" />
+                      <IoSearchOutline color="primary" />
                     </IconButton>
                   </InputAdornment>
                 ),

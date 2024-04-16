@@ -49,9 +49,10 @@ const ClientSection = () => {
         </Typography>
         <Typography
           textAlign="center"
-          variant="body2"
-          color="text.secondary"
-          sx={{ fontWeight: 600 }}
+          variant="body1"
+          color="text.primary"
+          sx={{mt:2}}
+          
         >
           23,000 + Customers in over 40 Countries grow there business with{" "}
           <span style={{ color: theme.palette.primary.main }}>

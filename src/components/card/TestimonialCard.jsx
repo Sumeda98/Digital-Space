@@ -20,6 +20,7 @@ const TestimonialCard = (props) => {
         elevation={0}
         sx={{
           p: 3,
+          border:'0px',
           borderRadius: "20px",
           backgroundColor: theme.palette.primary.main,
         }}

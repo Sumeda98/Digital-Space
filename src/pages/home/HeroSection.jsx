@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <div>
       <Grid
-        spacing={4}
+        spacing={5}
         container
         sx={{ minHeight: isMobile ? "50vh" : "100vh" }}
       >
@@ -35,6 +35,7 @@ const HeroSection = () => {
               variant="body1"
               color="text.iris"
               textAlign={isMobile ? "center" : "left"}
+              sx={{fontWeight:500}}
             >
               Where your business takes flight.
             </Typography>
@@ -50,15 +51,16 @@ const HeroSection = () => {
             </Typography>
             <Typography
               textAlign={isMobile ? "center" : "left"}
-              variant="body2"
-              color="text.secondary"
+              variant="body1"
+              color="text.primary"
+              sx={{mt:2}}
             >
               We'll amplify your brand's voice, resonating with audiences across
               the digital sphere.
             </Typography>
             <div
               style={{
-                marginTop: "20px",
+                marginTop: "30px",
                 display: "flex",
                 justifyContent: isMobile ? "center" : "left",
               }}

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import HeroSection from "./home/HeroSection";
 import ClientSection from "./home/ClientSection";
@@ -10,18 +10,32 @@ import WeDoCard from "../components/card/WeDoCard";
 
 const Home = () => {
   return (
-    <div>
-      <HeroSection />
-      <div style={{ display: "flow", minWidth: "100%" }}>
+    <Grid container rowGap={10}>
+      <Grid items>
+        <HeroSection />
+      </Grid>
+
+      <Grid items style={{ display: "flow", minWidth: "100%" }}>
         <ClientSection />
-      </div>
-      <div>
-      <WeDoSection />
-      </div>
-      <TestimonialSection />
-      <ProjectSection />
-      <QASection />
-    </div>
+      </Grid>
+
+      <Grid items>
+        <WeDoSection />
+      </Grid>
+
+      <Grid items>
+        <TestimonialSection />
+      </Grid>
+
+      <Grid items>
+        <ProjectSection />
+      </Grid>
+
+      <Grid items>
+      
+        <QASection />
+      </Grid>
+    </Grid>
   );
 };
 

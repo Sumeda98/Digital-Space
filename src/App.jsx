@@ -24,7 +24,7 @@ export default function App() {
         styleOverrides: {
           root: {
             boxShadow: 'none',
-            fontFamily: "Allerta",
+            fontFamily: "Arsenal",
             fontSize:'1rem'
            
           },
@@ -33,7 +33,9 @@ export default function App() {
       MuiCard: {
         styleOverrides: {
           root: {
-            boxShadow: 'rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px',
+            border:'1px solid',
+            borderColor:'#000'
+           // boxShadow: 'rgba(145, 158, 171, 0.3) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px',
           }
         }
       },
@@ -50,31 +52,31 @@ export default function App() {
         main: "#D9D9FF",
       },
       text: {
-        primary: darkMode ? "#FFFFFF" : "#19191A",
+        primary: darkMode ? "#FFFFFF" : "#222222",
         secondary: darkMode ? "#a3a3a3" : "#666666",
         iris: primaryColor,
         white: '#FFFF'
       },
     },
     typography: {
-      fontFamily: "Roboto",
+      fontFamily: "Montserrat",
       h1: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
       h2: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
       h3: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
       h4: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
       h5: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
       h6: {
-        fontFamily: "Allerta",
+        fontFamily: "Arsenal",
       },
     },
   });

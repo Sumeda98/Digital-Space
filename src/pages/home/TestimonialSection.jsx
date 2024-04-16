@@ -13,7 +13,7 @@ const TestimonialSection = () => {
       <Typography textAlign="center" variant="h4" sx={{ fontWeight: 600 }}>
         Testimonials
       </Typography>
-      <Typography textAlign="center" variant="body2" color="text.secondary">
+      <Typography textAlign="center" variant="body1" color="text.primary" sx={{mt:2}}>
         A shout out from our clients about their experiences working with us.
       </Typography>
       <Grid rowSpacing={2} columnSpacing={2} container xs={12} sx={{ mt: 6 }}>

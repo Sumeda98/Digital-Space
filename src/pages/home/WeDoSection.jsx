@@ -33,8 +33,7 @@ const WeDoSection = () => {
             title="UI UX Design"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
         <Grid
@@ -50,8 +49,7 @@ const WeDoSection = () => {
             title="SEO"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
         <Grid
@@ -67,8 +65,7 @@ const WeDoSection = () => {
             title="Web Design"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
         <Grid
@@ -84,8 +81,7 @@ const WeDoSection = () => {
             title="Software Development"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
         <Grid
@@ -101,8 +97,7 @@ const WeDoSection = () => {
             title="Mobile App Development"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
         <Grid
@@ -118,8 +113,7 @@ const WeDoSection = () => {
             title="Team Augmentation"
             description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi,
             dicta at architecto distinctio sed impedit esse, illo cupiditate
-            odio inventore maiores accusantium, aperiam corporis error doloribus
-            numquam? Accusamus, et iure."
+            odio inventore maiores accusantium, aperiam corporis error"
           />
         </Grid>
       </Grid>
