@@ -26,7 +26,7 @@ const Footer = () => {
   return (
     <div style={{ backgroundColor: theme.palette.primary.main }}>
       <Container sx={{ paddingY: 10, paddingBottom:2 }}>
-        <Grid container justifyContent="center">
+        <Grid container justifyContent="center" >
           <Grid item container xs={12} md={4}>
             <Grid item xs={12}>
               <Link to="/" style={{ textDecoration: "none" }}>

@@ -13,11 +13,12 @@ import {
   Divider,
   TextField,
   InputAdornment,
+  Fab,
+  useMediaQuery,
+  Stack,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-
 import { GoSun } from "react-icons/go";
-
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Logo from "../assets/brand/Logo.svg";
@@ -31,30 +32,43 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Form from "../components/Form/Form";
 import CloseIcon from "@mui/icons-material/Close";
+import { IoIosCall } from "react-icons/io";
 
 export default function Header({ toggleThemeMode, darkMode }) {
-
   const location = useLocation();
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
   const [openDialog, setOpenDialog] = React.useState(false);
   const [isFormOpen, setFormOpen] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:900px)");
 
-  const handleClickOpenDialog = () => { setOpenDialog(true);};
-  const handleCloseDialog = () => {setOpenDialog(false);};
-  const handleDrawerOpen = () => {setDrawerOpen(true);};
-  const handleDrawerClose = () => {setDrawerOpen(false);};
-  const handleFormOpen = () => {setFormOpen(true);};
-  const handleFormClose = () => {setFormOpen(false);};
+  const handleClickOpenDialog = () => {
+    setOpenDialog(true);
+  };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+  const handleDrawerOpen = () => {
+    setDrawerOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
+  };
+  const handleFormOpen = () => {
+    setFormOpen(true);
+  };
+  const handleFormClose = () => {
+    setFormOpen(false);
+  };
 
   const isActive = (path) => location.pathname === path;
 
   const pages = [
-    {path: "/", label: "Home"},
-    {path: "/about-us", label: "About us"},
-    {path: "/services", label: "Services"},
-    {path: "/contact", label: "Contact"},
-    {path: "/blog", label: "Contact"},
-  ]
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About us" },
+    { path: "/services", label: "Services" },
+    { path: "/contact", label: "Contact" },
+    { path: "/blog", label: "Blog" },
+  ];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -73,7 +87,9 @@ export default function Header({ toggleThemeMode, darkMode }) {
         }}
       >
         <Container>
-          <Toolbar sx={{ padding: "0px !important" , justifyContent:'space-between'}}>
+          <Toolbar
+            sx={{ padding: "0px !important", justifyContent: "space-between" }}
+          >
             <Link to="/" style={{ textDecoration: "none" }}>
               <img
                 src={Logo}
@@ -87,38 +103,20 @@ export default function Header({ toggleThemeMode, darkMode }) {
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
+                gap: "40px",
               }}
             >
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <Typography
-                  variant="body1"
-                  color={isActive("/") ? "text.iris" : "text.primary"}
-                >
-                  Home
-                </Typography>
-              </Link>
-              <Link to="services" style={{ textDecoration: "none" }}>
-                <Typography
-                  variant="body1"
-                  color={isActive("/services") ? "text.iris" : "text.primary"}
-                  sx={{
-                    paddingLeft: "30px",
-                  }}
-                >
-                  Service
-                </Typography>
-              </Link>
-              <Link to="contact" style={{ textDecoration: "none" }}>
-                <Typography
-                  variant="body1"
-                  color={isActive("/contact") ? "text.iris" : "text.primary"}
-                  sx={{
-                    paddingLeft: "30px",
-                  }}
-                >
-                  Contact
-                </Typography>
-              </Link>
+              {/* =========== nav-links ============== */}
+              {pages.map(({ path, label }) => (
+                <Link to={path} key={path} style={{ textDecoration: "none" }}>
+                  <Typography
+                    variant="body1"
+                    color={isActive(path) ? "text.iris" : "text.primary"}
+                  >
+                    {label}
+                  </Typography>
+                </Link>
+              ))}
             </Box>
             <Box
               sx={{
@@ -128,13 +126,6 @@ export default function Header({ toggleThemeMode, darkMode }) {
                 gap: "10px",
               }}
             >
-              <div>
-                <IconButton onClick={handleClickOpenDialog}>
-                  <IoSearchOutline
-                    style={{ color: darkMode ? "#FFFF" : "#222222" }}
-                  />
-                </IconButton>
-              </div>
               <div>
                 <IconButton color="inherit" onClick={toggleThemeMode}>
                   {darkMode ? (
@@ -177,6 +168,28 @@ export default function Header({ toggleThemeMode, darkMode }) {
           </Toolbar>
         </Container>
       </AppBar>
+
+      {/* Floating Icons */}
+      {!isMobile && (
+        <Stack
+          spacing={2}
+          sx={{ position: "fixed", bottom: 20, right: 20, zIndex: 1000 }}
+        >
+          <Fab
+            size="medium"
+            color="primary"
+            aria-label="search"
+            onClick={handleClickOpenDialog}
+          >
+            <IoSearchOutline
+              style={{ color:  "#FFFF" , fontSize:20 }}
+            />
+          </Fab>
+          <Fab size="medium" color="primary" aria-label="mode">
+            <IoIosCall style={{ color: "#FFFF",fontSize:20  }} />
+          </Fab>
+        </Stack>
+      )}
 
       {/* =============== Menu Drawer=========== */}
       <Drawer
